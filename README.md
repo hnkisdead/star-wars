@@ -13,3 +13,10 @@ Simple app for experimenting with technologies and architecture patterns
    poetry run uvicorn src.main:app --reload
    ```
 1. Open app http://127.0.0.1:8000/
+
+## TODO
+- [x] Add settings
+- [x] Add cache
+- [ ] Add command
+- [ ] Fix mypy errors
+- [ ] Add flake8 and plugins
