@@ -13,6 +13,10 @@ aiohttp = "^3.7.4"
 attrs = "^21.2.0"
 strawberry-graphql = "^0.84.1"
 aioredis = "^2.0.0"
+databases = {extras = ["postgresql"], version = "^0.5.3"}
+SQLAlchemy = "^1.4.26"
+psycopg2-binary = "^2.9.1"
+dependency-injector = "^4.37.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

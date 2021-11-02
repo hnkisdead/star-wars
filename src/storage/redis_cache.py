@@ -1,5 +1,5 @@
 import attr
-from aioredis.client import Redis
+from aioredis import Redis
 
 
 @attr.s

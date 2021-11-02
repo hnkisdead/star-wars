@@ -5,6 +5,8 @@ services:
     image: postgres:alpine
     ports:
       - "127.0.0.1:55432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
   redis:
     image: redis:alpine
     ports:

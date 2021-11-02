@@ -11,9 +11,10 @@ from src.repository.star_wars_api_planets_repository import ICache, StarWarsAPIP
 from src.settings import get_settings
 from src.storage.redis_cache import RedisCache
 
+current_dir = dirname(__file__)
+
 router = APIRouter()
 
-current_dir = dirname(__file__)
 templates = Jinja2Templates(directory=join(current_dir, "templates"))
 
 
