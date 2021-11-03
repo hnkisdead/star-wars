@@ -11,8 +11,7 @@ class RedisCache(object):
         return cls(client=Redis.from_url(url))
 
     async def set(self, key, value):
-        await self.client.set(name=key, value=value)
+        return await self.client.set(name=key, value=value)
 
     async def get(self, key):
-        data = await self.client.get(name=key)
-        return data.decode()
+        return (await self.client.get(name=key)).decode()
