@@ -14,4 +14,5 @@ class RedisCache(object):
         return await self.client.set(name=key, value=value)
 
     async def get(self, key):
-        return (await self.client.get(name=key)).decode()
+        data = await self.client.get(name=key)
+        return data.decode() if data else data

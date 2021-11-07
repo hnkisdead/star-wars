@@ -5,7 +5,7 @@ description = ""
 authors = ["Василий Субботин <subv13@yandex.ru>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 fastapi = "^0.70.0"
 Jinja2 = "^3.0.2"
 uvicorn = {extras = ["standard"], version = "^0.15.0"}

@@ -53,7 +53,7 @@ class StarWarsAPIPlanetsRepository(IPlanetsRepository):
 
             return planet_names
 
-    async def get_planets(self, session: aiohttp.ClientSession, pages_urls: List[str]) -> List[str]:
+    async def get_planets(self, session: aiohttp.ClientSession, pages_urls: List[str]) -> List[Planet]:
         tasks = [asyncio.create_task(self.get_page(session, pages_url)) for pages_url in pages_urls]
 
         result = await asyncio.gather(*tasks)
