@@ -12,7 +12,7 @@ from src.domain.use_case.get_planets import IPlanetsRepository
 
 @attr.s
 class ICache(abc.ABC):
-    client: attr.ib()
+    client = attr.ib()
 
     @abc.abstractmethod
     async def set(self, key, value):
@@ -58,9 +58,7 @@ class StarWarsAPIPlanetsRepository(IPlanetsRepository):
 
         result = await asyncio.gather(*tasks)
 
-        result = chain(*result)
-
-        return [Planet(name=planet_name) for planet_name in result]
+        return [Planet(name=planet_name) for planet_name in chain(*result)]
 
     async def list(self) -> List[Planet]:
         async with aiohttp.ClientSession() as session:

@@ -14,5 +14,5 @@ class Planet(object):
     name: str
 
 
-async def planets_resolver() -> List[Planet]:
+async def planets_resolver():
     return await use_case.handle()
