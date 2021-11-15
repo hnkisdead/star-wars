@@ -5,7 +5,6 @@ from dependency_injector.wiring import Provide
 
 from src.container import Container
 from src.domain.use_case.get_planets import GetPlanets
-from src.domain.entity.planet import Planet as PlanetEntity
 
 use_case: GetPlanets = Provide[Container.get_planets_use_case]
 
@@ -15,5 +14,5 @@ class Planet(object):
     name: str
 
 
-async def planets_resolver() -> List[PlanetEntity]:
+async def planets_resolver() -> List[Planet]:
     return await use_case.handle()

@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Star Wars Planets</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
-<body>
-<div class="container">
-  <section>
-    <div class="columns">
-      <div class="column">
-        <h1 class="is-size-1 has-text-centered">Planets</h1>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="columns is-multiline">
-      {% for planet in planets %}
-        <div class="column is-one-quarter">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-header-title">
-                {{ planet.name }}
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-</div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Star Wars Main
+{% endblock %}
