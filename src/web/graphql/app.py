@@ -3,7 +3,7 @@ from typing import List
 import strawberry
 from strawberry.fastapi import GraphQLRouter
 
-from src.http.graphql.planets_resolver import planets_resolver, Planet
+from src.web.graphql.planets_resolver import Planet, planets_resolver
 
 
 @strawberry.type

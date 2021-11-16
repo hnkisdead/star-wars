@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from src.http.html.index_view import index_view
-from src.http.html.planets_view import planets_view
+from src.web.html.index_view import index_view
+from src.web.html.planets_view import planets_view
 
 router = APIRouter()
 
