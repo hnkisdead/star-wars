@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "star-wars"
+name = "star-wars-backend"
 version = "0.1.0"
 description = ""
 authors = ["Василий Субботин <subv13@yandex.ru>"]
+packages = [
+    { include="src", from="." }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -17,6 +20,10 @@ databases = {extras = ["postgresql"], version = "^0.5.3"}
 SQLAlchemy = "^1.4.26"
 psycopg2-binary = "^2.9.1"
 dependency-injector = "^4.37.0"
+typer = "^0.4.0"
+
+[tool.poetry.scripts]
+cli = "src.cli.main:cli"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -31,7 +38,6 @@ types-attrs = "^19.1.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
 
 [tool.black]
 line-length = 119
