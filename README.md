@@ -15,13 +15,20 @@ Simple app for experimenting with technologies and architecture patterns
     ```
 4. Run app
     ```bash
-    poetry run uvicorn src.main:app --reload
+    poetry run uvicorn src.web:app --reload
     ```
 6. Open app http://127.0.0.1:8000/
 
 ## TODO
-- [x] Add settings
-- [x] Add cache
-- [ ] Add command
-- [x] Fix mypy errors
-- [ ] Add flake8 and plugins
+- [ ] CLI
+  - [x] Setup CLI
+  - [x] Add clear cache command
+  - [ ] Add sync planets command
+- [ ] Web
+  - [ ] Add mutation
+- [ ] Common
+  - [ ] Add database
+  - [x] Add settings
+  - [x] Add cache
+  - [x] Fix mypy errors
+  - [ ] Add flake8 and plugins

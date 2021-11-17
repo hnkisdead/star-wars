@@ -16,3 +16,6 @@ class RedisCache(object):
     async def get(self, key):
         data = await self.client.get(name=key)
         return data.decode() if data else data
+
+    async def flush_db(self):
+        return await self.client.flushdb()
