@@ -27,6 +27,8 @@ Simple app for experimenting with technologies and architecture patterns
 - [ ] Web
   - [ ] Add mutation
 - [ ] Common
+  - [ ] Add logging
+  - [ ] Add proper error handling
   - [ ] Add database
   - [x] Add settings
   - [x] Add cache
