@@ -22,6 +22,7 @@ psycopg2-binary = "^2.9.1"
 dependency-injector = "^4.37.0"
 typer = "^0.4.0"
 pydantic = "^1.8.2"
+flake8-print = "^4.0.0"
 
 [tool.poetry.scripts]
 cli = "src.cli.main:cli"
@@ -35,6 +36,8 @@ black = "^21.9b0"
 isort = "^5.9.3"
 ipython = "^7.28.0"
 types-attrs = "^19.1.0"
+flake8 = "^4.0.1"
+flake8-builtins = "^1.5.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

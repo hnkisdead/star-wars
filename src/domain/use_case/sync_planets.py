@@ -10,14 +10,14 @@ from src.domain.entity.planet import Planet
 class IAPIPlanetsRepository(abc.ABC):
     @abc.abstractmethod
     async def list(self) -> List[Planet]:
-        raise NotImplemented
+        raise NotImplementedError
 
 
 @attr.s
 class IDBPlanetsRepository(abc.ABC):
     @abc.abstractmethod
     async def save(self, planet: Planet) -> Planet:
-        raise NotImplemented
+        raise NotImplementedError
 
 
 @attr.s

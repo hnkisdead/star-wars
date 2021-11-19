@@ -18,3 +18,9 @@ repos:
         entry: .venv/bin/mypy
         language: python
         types: [ python ]
+
+      - id: flake8
+        name: flake8
+        entry: .venv/bin/flake8
+        language: python
+        types: [ python ]
