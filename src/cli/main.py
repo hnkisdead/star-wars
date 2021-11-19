@@ -6,7 +6,7 @@ from src.cli.sync_planets import sync_planets
 from src.utils.container import wire_container
 
 
-def create_cli():
+def create_cli() -> typer.Typer:
     new_cli = typer.Typer()
     add_command = new_cli.command()
 

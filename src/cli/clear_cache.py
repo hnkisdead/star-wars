@@ -9,6 +9,6 @@ from src.storage.redis_cache import RedisCache
 cache: RedisCache = Provide[CLIContainer.redis_cache]
 
 
-def clear_cache():
+def clear_cache() -> None:
     result = asyncio.run(cache.flush_db())
     typer.echo("Cache is cleared - {}".format(result))

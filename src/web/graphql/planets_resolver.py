@@ -1,3 +1,5 @@
+from typing import List
+
 import strawberry
 from dependency_injector.wiring import Provide
 
@@ -12,5 +14,5 @@ class Planet(object):
     name: str
 
 
-async def planets_resolver():
-    return await use_case.handle()
+async def planets_resolver() -> List[Planet]:
+    return [Planet(name=planet.name) for planet in await use_case.handle()]

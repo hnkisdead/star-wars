@@ -10,6 +10,6 @@ from .container import CLIContainer
 get_planets_use_case: GetPlanets = Provide[CLIContainer.get_planets_use_case]
 
 
-def sync_planets():
+def sync_planets() -> None:
     result = asyncio.run(get_planets_use_case.handle())
     typer.echo(result)

@@ -1,28 +1,18 @@
-import abc
-from typing import List
+from typing import List, Protocol
 
 import attr
 
 from src.domain.entity.planet import Planet
 
 
-@attr.s
-class IPlanetsRepository(abc.ABC):
-    @abc.abstractmethod
+class IPlanetsRepository(Protocol):
     async def list(self) -> List[Planet]:
-        raise NotImplemented
+        ...
 
 
 @attr.s
-class IGetPlanets(abc.ABC):
+class GetPlanets(object):
     repository: IPlanetsRepository = attr.ib()
 
-    @abc.abstractmethod
-    async def handle(self) -> List[Planet]:
-        raise NotImplemented
-
-
-@attr.s
-class GetPlanets(IGetPlanets):
     async def handle(self) -> List[Planet]:
         return await self.repository.list()

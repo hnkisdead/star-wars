@@ -1,36 +1,29 @@
-import abc
 import asyncio
 import json
 from itertools import chain
-from typing import List
+from typing import List, Protocol
 
 import aiohttp
 import attr
 
 from src.domain.entity.planet import Planet
-from src.domain.use_case.get_planets import IPlanetsRepository
+
+
+class ICache(Protocol):
+    async def set(self, key: str, value: str) -> bool:
+        ...
+
+    async def get(self, key: str) -> str:
+        ...
 
 
 @attr.s
-class ICache(abc.ABC):
-    client = attr.ib()
-
-    @abc.abstractmethod
-    async def set(self, key, value):
-        raise NotImplemented
-
-    @abc.abstractmethod
-    async def get(self, key):
-        raise NotImplemented
-
-
-@attr.s
-class StarWarsAPIPlanetsRepository(IPlanetsRepository):
+class StarWarsAPIPlanetsRepository(object):
     cache: ICache = attr.ib()
     skip_cache: bool = attr.ib(default=False)
     planets_url: str = attr.ib(default="https://swapi.dev/api/planets/?page={}")
 
-    async def _get_pages_urls(self, session) -> List[str]:
+    async def _get_pages_urls(self, session: aiohttp.ClientSession) -> List[str]:
         page_num = 1
 
         async with session.get(self.planets_url.format(page_num)) as response:
@@ -59,7 +52,7 @@ class StarWarsAPIPlanetsRepository(IPlanetsRepository):
 
         result = await asyncio.gather(*tasks)
 
-        return [Planet(name=planet["name"], external_url=planet["url"]) for planet in chain(*result)]
+        return [Planet(id=None, name=planet["name"], external_url=planet["url"]) for planet in chain(*result)]
 
     async def list(self) -> List[Planet]:
         async with aiohttp.ClientSession() as session:

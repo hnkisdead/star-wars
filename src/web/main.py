@@ -6,7 +6,7 @@ from src.web.graphql import app as graphql_app
 from src.web.html import app as html_app
 
 
-def create_app():
+def create_app() -> FastAPI:
     new_app = FastAPI()
 
     new_app.include_router(html_app.router)
